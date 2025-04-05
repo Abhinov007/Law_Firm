@@ -32,8 +32,9 @@ const getCases= async(req,res)=>{
     console.log("Received Case ID:", req.params.id);
     try {
         let cases;
+        const caseId = req.params.id;
         if(req.user.role==="admin"){
-            cases = await Case.find().populate('lawyerAssigned', 'name email');
+            cases = await Case.find({ _id: caseId }).populate('lawyerAssigned', 'name email');
         }
         else if (req.user.role === 'lawyer') {
             cases = await Case.find({ lawyerAssigned: req.user._id });
@@ -53,6 +54,7 @@ const updateCase= async(req, res)=>{
     try {
         const{status,lawyerId}= req.body;
         const caseId = req.params.id;
+        
 
         let caseToUpdate = await Case.findById(caseId);
         if (!caseToUpdate) {
@@ -96,6 +98,7 @@ const assignLawyer = async (req, res) => {
     try {
         const { lawyerId } = req.body;
         const caseId = req.params.caseId;
+        console.log("Received Case ID:", caseId);
 
         const caseToUpdate = await Case.findById(caseId);
         if (!caseToUpdate) {
