@@ -26,8 +26,19 @@ const createCase= async(req,res)=>{
         }
 
 };
+ 
+const getAllCases = async (req, res) => {
+    try {
+        const cases = await Case.find().populate("lawyerAssigned", "name email"); // Ensure "User" model is available
+        res.json(cases);
+    } catch (error) {
+        console.error("Error fetching cases:", error);
+        res.status(500).json({ message: "Internal Server Error" });
+    }
+};
 
-//get all cases
+
+//get cases
 const getCases= async(req,res)=>{
     console.log("Received Case ID:", req.params.id);
     try {
@@ -121,4 +132,4 @@ const assignLawyer = async (req, res) => {
 };
 
 
-module.exports = { createCase, getCases, updateCase, deleteCase, assignLawyer };
+module.exports = { createCase, getAllCases, getCases, updateCase, deleteCase, assignLawyer };

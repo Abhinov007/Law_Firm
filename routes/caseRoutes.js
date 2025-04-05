@@ -1,14 +1,14 @@
 const express= require("express");
 const router= express.Router();
 const Case= require("../models/caseModel");
-const { createCase, getCases, updateCase, deleteCase, assignLawyer} = require("../controllers/caseController");
+const { createCase, getCases,getAllCases, updateCase, deleteCase, assignLawyer} = require("../controllers/caseController");
 const { authMiddleware, roleCheck } = require("../middleware/authMiddleware");
 
 // Create case (Client)
 router.post("/submit", authMiddleware, createCase);
 
 // Get all cases (Admin/Lawyer)
-router.get("/getAllcases", authMiddleware, roleCheck(["admin", "lawyer"]), getCases);
+router.get("/getAllcases", authMiddleware, roleCheck(["admin"]), getAllCases);
 
 // Get specific case by ID
 router.get("/getCases/:id", authMiddleware, getCases);
