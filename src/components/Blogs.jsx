@@ -1,37 +1,25 @@
 import React from 'react'
+import ContactUs from './ContactUs'
+import BlogCard from './BlogCard'
 
 const Blogs = () => {
   return (
-<div className='flex h-[900px] justify-self-center'>
-
-<div className="w-[1200px] h-auto p-4 bg-gray-100">
-{/* Parent Grid */}
-<div className="grid grid-rows-2 gap-4 h-auto">
-
-{/* First Element (Takes Full Row) */}
-<div className="bg-blue-500 h-full flex items-center  justify-center text-white text-xl">
-Full Row Element
-</div>
-
-{/* Second Row with Two Sections */}
-<div className="grid grid-cols-2 gap-4 h-full">
-
-{/* Left Half */}
-<div className="bg-green-500 flex items-center justify-center text-white text-xl">
-Left Half
-</div>
-
-{/* Right Half - Divided into 4 Subparts */}
-<div className="grid grid-cols-2 grid-rows-2 gap-4">
-<div className="bg-red-500 flex items-center justify-center text-white">1</div>
-<div className="bg-yellow-500 flex items-center justify-center text-white">2</div>
-<div className="bg-purple-500 flex items-center justify-center text-white">3</div>
-<div className="bg-pink-500 flex items-center justify-center text-white">4</div>
-</div>
-
-</div>
-</div>
-</div>
+<div className=' container w-[1000px] my-10 m-auto py-5 px-30 h-[500px] bg-white  shadow-lg  grid grid-cols-3 gap-4'>
+      <div className=' col-span-3 flex justify-between px-4 py-0.5 border-b shadow-lg '> 
+       <div className=''>MEDIA</div>
+       <div className=' '>
+       <ContactUs></ContactUs>
+       </div>
+      </div>
+      <div className=' col-span-1 row-span-2 p-2 rounded-sm shadow-lg'>
+      <BlogCard />
+      </div>
+      <div className=' w-61 h-48 rounded-sm shadow-lg'>
+      </div>
+      <div className=' w-61 h-48 rounded-sm shadow-lg'></div>
+      <div className=' w-61 h-48 rounded-sm shadow-lg'>5</div>
+      <div className=' w-61 h-48 rounded-sm shadow-lg'>6</div>
+      
 </div>
 
   )

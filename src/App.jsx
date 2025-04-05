@@ -9,6 +9,7 @@ import Legacy from './components/Legacy'
 import TeamCard from './components/TeamCard'
 import Team from './components/Team'
 import Blogs from './components/Blogs'
+import Contact from './components/Contact'
 
 
 function App() {
@@ -25,6 +26,7 @@ function App() {
     <Legacy />
     <Team />
     <Blogs />
+    <Contact />
     </div>
     
     </>
