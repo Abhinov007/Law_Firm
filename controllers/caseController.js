@@ -5,18 +5,18 @@ const sendEmail = require("../utils/sendEmail");
 //Create new Cases(By Client)
 const createCase= async(req,res)=>{
     try {
-            const {title,description,clientDetails,caseDetails}= req.body;
+            const {name,email,phone}= req.body;
     
-            if (!title || !description || !clientDetails || !caseDetails) {
+            if (!name || !email || !phone ) {
                 return res.status(400).json({ message: "All fields are required" });
             }
-            const newCase = new Case({title,description,clientDetails,caseDetails});
+            const newCase = new Case({name,email,phone});
             await newCase.save();
     
             await sendEmail(
                 process.env.EMAIL_USER,
                 "New Case Submission",
-                `A new case has been submitted.\n\nClient: ${clientDetails.name}\nEmail: ${clientDetails.email}\nPhone: ${clientDetails.phone}\n\nCase Details:\n${caseDetails}`
+                `A new case has been submitted.\n\nClient: ${name}\nEmail: ${email}\nPhone: ${phone}\n\nCase `
             );
     
             res.status(201).json({ message: "Case submitted successfully. Admin will contact you soon." });

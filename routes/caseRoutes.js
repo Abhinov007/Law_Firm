@@ -5,7 +5,7 @@ const { createCase, getCases,getAllCases, updateCase, deleteCase, assignLawyer} 
 const { authMiddleware, roleCheck } = require("../middleware/authMiddleware");
 
 // Create case (Client)
-router.post("/submit", authMiddleware, createCase);
+router.post("/submit", createCase);
 
 // Get all cases (Admin/Lawyer)
 router.get("/getAllcases", authMiddleware, roleCheck(["admin"]), getAllCases);

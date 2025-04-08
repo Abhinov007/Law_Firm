@@ -12,6 +12,12 @@ const app = express();
 app.use(express.json());
 app.use(cors());
 
+app.use(cors({
+    origin: 'http://localhost:5173', // React dev server
+    methods: ['GET', 'POST','PUT','DELETE'],
+    credentials: true, // if you're sending cookies/auth headers
+  }));
+
 app.use('/api/auth', require('./routes/authRoutes'));
 app.use("/api/cases", caseRoutes); 
 
