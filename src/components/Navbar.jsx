@@ -1,9 +1,11 @@
 
-import React, { useState,useEffect } from 'react'
-import legumlogo from '../assets/legumlogo.png'
+import React, { useState,useEffect } from "react";
+import { FiMenu, FiX } from "react-icons/fi";
+import legumlogo from "../assets/legumlogo.png";
+import { Link, Element } from 'react-scroll';
 
 const Navbar = () => {
-
+  const [menuOpen, setMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled]= useState(false);
    
   useEffect(()=>{
@@ -19,49 +21,80 @@ const Navbar = () => {
   },[]);
 
   return (
-    <nav className={`  z-50 fixed top-0 w-full ${
-        isScrolled ? "backdrop-blur-lg " : "bg-transparent"} `}>
-      <div className="container bg mx-auto flex items-center justify-between px-4 py-2">
-       
-        <div className="flex items-center space-x-2">
-          <img
-            src={legumlogo}
-            alt=""
-            className="w-auto h-16"
-          />
-          
+    <nav className={`${isScrolled ? "backdrop-blur-lg " : "bg-transparent"} 
+      ${isScrolled ? "text-black " : "text-white"}
+      shadow-md  fixed w-full top-0 z-50`}>
+      <div className="max-w-8xl mx-auto px-3 py-3 flex items-center justify-between">
+        {/* Logo */}
+        <div className="w-[150px]">
+        <img src={legumlogo} alt="" />
         </div>
 
-
-       
-        <div className="flex items-center space-x-4">
-          <button className={`${isScrolled ? "px-4 py-2 text-sm font-medium text-black" :"px-4 py-2 text-sm font-medium text-white"}`}>
-            Log In
-          </button>
-          <button className={`${isScrolled ? "px-4 py-2 text-sm font-medium text-black" :"px-4 py-2 text-sm font-medium text-white"}`}>
-            Log In
-          </button>
-          <button className={`${isScrolled ? "px-4 py-2 text-sm font-medium text-black" :"px-4 py-2 text-sm font-medium text-white"}`}>
-            Log In
-          </button>
-          <button className={`${isScrolled ? "px-4 py-2 text-sm font-medium text-black" :"px-4 py-2 text-sm font-medium text-white"}`}>
-            Log In
-            </button>
-            <button className={`${isScrolled ? "px-4 py-2 text-sm font-medium text-black" :"px-4 py-2 text-sm font-medium text-white"}`}>
-            Log In
-          </button>
-          <button className={`${isScrolled ? "px-4 py-2 text-sm font-medium text-black" :"px-4 py-2 text-sm font-medium text-white"}`}>
-            Log In
-          </button>
-          <button className={`${isScrolled ? "px-4 py-2 text-sm font-medium text-black" :"px-4 py-2 text-sm font-medium text-white"}`}>
-            Sign Up
+        {/* Hamburger icon - only on small screens */}
+        <div className="lg:hidden">
+          <button onClick={() => setMenuOpen(!menuOpen)} className="text-4xl mx-5 text-white">
+            {menuOpen ? <FiX /> : <FiMenu />}
           </button>
         </div>
+
+        {/* Navbar items - hidden on mobile, shown on desktop */}
+        <ul className={`${isScrolled ? " text-white" : "text-white"}"hidden lg:flex space-x-6 font-medium"`}>
+          <li className="hover:text-blue-600 cursor-pointer">
+          <Link to="home" smooth={true} duration={500}>Home</Link>
+          </li>
+          <li className="hover:text-blue-600 cursor-pointer">
+          <Link to="Content" smooth={true} duration={500}>About</Link>
+          </li>
+          <li className="hover:text-blue-600 cursor-pointer">
+          <Link to="expertise" smooth={true} duration={500}>Expertise</Link>
+          </li>
+          <li className="hover:text-blue-600 cursor-pointer">
+          <Link to="litigation" smooth={true} duration={500}>Services</Link>
+          </li>
+          <li className="hover:text-blue-600 cursor-pointer">
+          <Link to="team" smooth={true} duration={500}>Team</Link>
+          </li>
+          <li className="hover:text-blue-600 cursor-pointer">
+          <Link to="blog" smooth={true} duration={500}>Blog</Link>
+          </li>
+          <li className="hover:text-blue-600 cursor-pointer">
+          <Link to="contact" smooth={true} duration={500}>Contact</Link>
+          </li>
+        </ul>
       </div>
-    </nav>
-  )
-}
 
-export default Navbar
+      {/* Mobile dropdown menu - shown only when menuOpen is true */}
+      {menuOpen && (
+        <div className="lg:hidden px-4 pb-4">
+          <ul className={`"flex flex-col space-y-3 bg-white text-black font-medium"`}>
+            <li className="hover:text-blue-600 cursor-pointer">
+            <Link to="home" smooth={true} duration={500}>Home</Link>
+            </li>
+            <li className="hover:text-blue-600 cursor-pointer">
+            <Link to="Content" smooth={true} duration={500}>About</Link>
+            </li>
+            <li className="hover:text-blue-600 cursor-pointer">
+          <Link to="expertise" smooth={true} duration={500}>Expertise</Link>
+          </li>
+          <li className="hover:text-blue-600 cursor-pointer">
+          <Link to="litigation" smooth={true} duration={500}>Services</Link>
+          </li>
+          <li className="hover:text-blue-600 cursor-pointer">
+          <Link to="team" smooth={true} duration={500}>Team</Link>
+          </li>
+          <li className="hover:text-blue-600 cursor-pointer">
+          <Link to="blog" smooth={true} duration={500}>Blog</Link>
+          </li>
+          <li className="hover:text-blue-600 cursor-pointer">
+          <Link to="contact" smooth={true} duration={500}>Contact</Link>
+          </li>
+          </ul>
+        </div>
+      )}
+    </nav>
+  );
+};
+
+export default Navbar;
 
 

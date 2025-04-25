@@ -36,13 +36,13 @@ const Contact = () => {
   }
 
   return (
-    <div className='bg-slate-500 h-[400px] flex justify-center'>
-        <div className='w-1/3 pl-8  flex flex-col justify-center px-20 '>
+    <div className='bg-slate-500 md:flex md:flex-row lg: w-screen h-[400px] flex flex-col justify-center' id='contact'>
+        <div className='w-auto  md:w-1/3 pl-12  flex flex-col justify-center px-20 '>
         <span className='text-white text-2xl'>LEGUM CONSULTANTS</span>
         <span className='text-white '>413, Saket District Court,
         New Delhi</span>
         </div>
-        <div className='w-2/3  bg-slate-500 flex flex-col justify-center'>
+        <div className='w-auto md:w-2/3  bg-slate-500 flex flex-col justify-center'>
         <div className='ml-25 flex flex-col '>
         <span className='text-white '>Call Us   8802888820</span>
         <br />

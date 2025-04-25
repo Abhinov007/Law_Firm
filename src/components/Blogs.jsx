@@ -4,7 +4,7 @@ import BlogCard from './BlogCard'
 
 const Blogs = () => {
   return (
-<div className=' container w-[1000px] my-10 m-auto py-5 px-30 h-[500px] bg-white  shadow-lg  grid grid-cols-3 gap-4'>
+<div className=' container w-auto   my-10 m-1 md:m-auto py-5 px-30 h-[500px] bg-white  shadow-lg  grid grid-cols-3 gap-4' id='blog'>
       <div className=' col-span-3 flex justify-between px-4 py-0.5 border-b shadow-lg '> 
        <div className=''>MEDIA</div>
        <div className=' '>

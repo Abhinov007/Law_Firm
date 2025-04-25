@@ -1,30 +1,25 @@
 import React from "react";
 import TeamList from "../TeamList";
 import TeamCard from "./TeamCard";
+import ContactUs from "./ContactUs";
 
 const Team = () => {
   return (
-    <div className="relative h-[600px] w-full">
+    <div className="flex flex-col justify-center" id="team">
     
-    <div className="absolute top-0 left-0 w-full h-full flex flex-col">
-      
-      <div className="w-full h-1/2 bg-white"></div>
-      
-      <div className="w-full h-1/2 bg-slate-500"></div>
-    </div>
-
+    <div className="z-10 px-13 flex flex-col md:flex md:flex-row md:flex-wrap lg:flex lg:flex-row  md:px-10  ">
     
-    <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-auto h-auto border-black rounded-lg flex gap-5 items-center justify-center">
-   
-   
     {TeamList.map((e) => (
       <TeamCard key={e.id} name={e.name} />
-
-
-    ))}
       
-    </div>
-  </div>
+      
+      ))}
+      
+      </div>
+      <div className="mx-auto">
+      <ContactUs />
+      </div>
+      </div>
   );
 };
 

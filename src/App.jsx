@@ -17,7 +17,7 @@ function App() {
 
   return (
     <>
-    <div className='relative '>
+    
     <Navbar />
     <TopSection />
     <Content />
@@ -27,7 +27,8 @@ function App() {
     <Team />
     <Blogs />
     <Contact />
-    </div>
+   
+   
     
     </>
   )
