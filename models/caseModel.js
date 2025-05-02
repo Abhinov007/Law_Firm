@@ -8,7 +8,7 @@ const CaseSchema = new mongoose.Schema({
     
     status: {
         type: String,
-        enum: ["Pending", "In Progress", "Closed"],
+        enum: ["Pending", "Active", "Closed"],
         default: "Pending",
     },
     lawyerAssigned: { type: mongoose.Schema.Types.ObjectId, ref: "User" }, // Reference to Lawyer

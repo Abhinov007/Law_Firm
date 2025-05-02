@@ -107,7 +107,7 @@ const deleteCase = async (req, res) => {
 };
 const assignLawyer = async (req, res) => {
     try {
-        const { lawyerId } = req.body;
+        const { lawyerName } = req.body;  // Accept lawyer name
         const caseId = req.params.caseId;
         console.log("Received Case ID:", caseId);
 
@@ -116,11 +116,13 @@ const assignLawyer = async (req, res) => {
             return res.status(404).json({ message: "Case not found" });
         }
 
-        const lawyer = await User.findById(lawyerId);
+        // Find the lawyer by their name (case-insensitive)
+        const lawyer = await User.findOne({ name: new RegExp(`^${lawyerName}$`, 'i') });
         if (!lawyer || lawyer.role.toLowerCase() !== "lawyer") {
-            return res.status(400).json({ message: "Invalid lawyer ID" });
+            return res.status(400).json({ message: "Invalid lawyer name" });
         }
 
+        // Assign the lawyer to the case
         caseToUpdate.lawyerAssigned = lawyer._id;
         await caseToUpdate.save();
 
