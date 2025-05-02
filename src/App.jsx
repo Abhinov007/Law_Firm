@@ -1,15 +1,15 @@
-import { useState } from 'react'
-import TopSection from './components/TopSection'
-import Content from './components/Content'
+import React from 'react'
+
 import './App.css'
 import Navbar from './components/Navbar'
-import Expertise from './components/Expertise'
-import Litigation from './components/Litigation'
-import Legacy from './components/Legacy'
-import TeamCard from './components/TeamCard'
-import Team from './components/Team'
-import Blogs from './components/Blogs'
-import Contact from './components/Contact'
+
+import { Routes, Route } from 'react-router-dom';
+import Home from './pages/Home'
+import Dashboard from './pages/Dashboard'
+import Register from './pages/Register'
+import Login from './pages/Login'
+
+
 
 
 function App() {
@@ -17,16 +17,14 @@ function App() {
 
   return (
     <>
+
     
-    <Navbar />
-    <TopSection />
-    <Content />
-    <Expertise />
-    <Litigation />
-    <Legacy />
-    <Team />
-    <Blogs />
-    <Contact />
+    <Routes>
+    <Route path="/" element={<Home />} />
+    <Route path='/register' element={<Register />}></Route>
+    <Route path='/login' element={<Login />}></Route>
+    <Route path="/dashboard" element={<Dashboard />} />
+    </Routes>
    
    
     

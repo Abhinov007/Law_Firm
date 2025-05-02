@@ -3,10 +3,19 @@ import React, { useState,useEffect } from "react";
 import { FiMenu, FiX } from "react-icons/fi";
 import legumlogo from "../assets/legumlogo.png";
 import { Link, Element } from 'react-scroll';
+import NavigateButton from "./NavigateButton";
+
+import SignUp from "./SignUp";
+import { useNavigate } from "react-router-dom";
 
 const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled]= useState(false);
+  const navigate= useNavigate();
+
+  const handleClick = () => {
+    navigate('/register'); //  route to your desired path
+  };
    
   useEffect(()=>{
     const handleScroll=()=>{
@@ -60,6 +69,15 @@ const Navbar = () => {
           <li className="hover:text-blue-600 cursor-pointer">
           <Link to="contact" smooth={true} duration={500}>Contact</Link>
           </li>
+          <li className="hover:text-blue-600 cursor-pointer">
+          <button
+          onClick={handleClick}
+          className="bg-blue-600 text-white px-6 py-2 rounded hover:bg-blue-700 transition">
+          Sign Up
+        </button>
+       
+      
+          </li>
         </ul>
       </div>
 
@@ -87,6 +105,9 @@ const Navbar = () => {
           </li>
           <li className="hover:text-blue-600 cursor-pointer">
           <Link to="contact" smooth={true} duration={500}>Contact</Link>
+          </li>
+          <li className="hover:text-blue-600 cursor-pointer">
+          
           </li>
           </ul>
         </div>
