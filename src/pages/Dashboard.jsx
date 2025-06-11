@@ -6,7 +6,7 @@ import UnverifiedUsersTable from '../components/UnverifiedUsersTable'
 
 const Dashboard = () => {
   return (
-    <div className='flex flex-col mx-auto justify-center' id='dashboard'>
+    <div className=' flex flex-col mx-auto justify-center' id='dashboard'>
      <HomeButton />
       <Table />
       <UnverifiedUsersTable />

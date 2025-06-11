@@ -6,11 +6,11 @@ const Contact = () => {
       }
 
   return (
-    <div className='bg-blue-300 w-22 h-7 hover:cursor'
+    <div className='bg-deepblue w-30 h-8 hover:cursor'
     style={{
-        clipPath: "polygon(0% 0%, 100% 0, 100% 50%, 70% 100%, 0% 100%)",
+        clipPath: "polygon(0% 0%, 100% 0, 100% 65%, 90% 100%, 0% 100%)",
       }}>
-    <button className='text-sm px-1 hover:cursor-pointer' onClick={Contact} >Contact us</button>
+    <button className='text-sm pt-1 px-4 text-white hover:cursor-pointer' onClick={Contact} >CONTACT US</button>
     </div>
   )
 }

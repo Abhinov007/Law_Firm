@@ -16,7 +16,7 @@ import { Routes, Route } from 'react-router-dom';
 
 const Home = () => {
   return (
-    <div id='home'>
+    <div className='bg-gray-50' id='home'>
     <Navbar />
     <TopSection />
     <Content />

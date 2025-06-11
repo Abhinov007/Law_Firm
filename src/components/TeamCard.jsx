@@ -5,9 +5,9 @@ const TeamCard = ({ name }) => {
   return (
     
     
-    <div className=" shadow-2xl m-10 p-3 w-[265px]    h-[339px] drop-shadow-lg ">
+    <div className=" shadow-2xl m-10 p-3 w-[265px] bg-white   h-[339px] drop-shadow-lg ">
     <img className="translate-x-8 -translate-y-10 w-max-auto" src={lawyer_pic} alt="image" />
-    <h1 className=" px-7 -translate-y-8 text-wrap text-1xl text-blue-400 border-black">Mr Asit Kumar Roy Advocate </h1>
+    <h1 className=" px-7  -translate-y-8 text-wrap text-1xl text-deepblue border-black"><b>Mr Asit Kumar Roy Advocate </b></h1>
     </div>
     
   );

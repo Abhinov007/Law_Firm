@@ -22,7 +22,7 @@ const YoutubeApi = () => {
               `https://youtube.googleapis.com/youtube/v3/search`, {
                 params: {
                     part: 'snippet',
-                    channelId: VITE_CHANNEL_ID,
+                    channelId: VITE_CHANNEL_ID,     
                     maxResults: 5,
                     key: VITE_YOUTUBE_API
                 }

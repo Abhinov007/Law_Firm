@@ -89,6 +89,7 @@ const Table = () => {
             <th className="p-4">Phone</th>
             <th className="p-4">Status</th>
             <th className="p-4">Assign Lawyer</th>
+            <th className="p-4">Assigned Lawyer</th>
             <th className="p-4">Actions</th>
           </tr>
         </thead>
@@ -126,6 +127,12 @@ const Table = () => {
                   Assign
                 </button>
               </td>
+              <td className="p-4">
+          {user.lawyerAssigned
+            ? user.lawyerAssigned.name
+            : "Not Assigned"}
+        </td>
+              
 
               <td className="p-4">
                 <button
