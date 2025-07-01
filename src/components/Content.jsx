@@ -1,35 +1,41 @@
-import React from 'react'
-import watermark from "../assets/watermark.png"
-import bgContent from "../assets/bgContent.png"
+import React from 'react';
+import watermark from "../assets/watermark.png";
+import bgContent from "../assets/bgContent.png";
 
 const Content = () => {
   return (
+    <div className="relative w-screen min-h-[1000px] md:h-[400px]" id="Content">
+      {/* Background Image */}
+      <img className="w-full h-[1000px] object-cover" src={bgContent} alt="background" />
 
-<div className=' relative  h-[1200px] w-screen md:h-[400px]  ' id='Content'>
-<img className='w-full h-[900px] md:h-[400px]' src={bgContent} alt="watermark" />
-     
-<div className='absolute top-2 left-0 mx-8 grid grid-rows-2 gap-8 md:grid-cols-2 p-10  mt-8 '>
+      {/* Foreground Text Content */}
+      <div className="absolute top-0 left-0 w-full h-full grid gap-6 md:grid-cols-2 px-4 py-8 md:px-10 md:py-14">
+        {/* Left Section */}
+        <div className="flex flex-col justify-center">
+          <h1 className="text-2xl md:text-3xl font-bold mb-2">
+            Trusted Legal Expertise Across Courts & Tribunals
+          </h1>
+          <p className="text-sm leading-relaxed">
+            Legum Consultants is a distinguished law firm renowned for its comprehensive legal services and dedicated client representation. Our practice extends across the Supreme Court of India, the Delhi High Court, and various tribunals and commissions, including the NCDRC, SCDRC, NGT, AFT, CAT, as well as subordinate courts in Delhi. With a commitment to excellence and a client-centric approach, we navigate complex legal matters with precision and expertise.
+          </p>
+        </div>
 
-<div className=' h-auto lg:ml-30 mr-10 '>
-<h1 className='text-3xl  '><b>Trusted Legal Expertise Across Courts & Tribunals</b></h1>
-<br />
-<span className='text-xs text-wrap '>Legum Consultants is a distinguished law firm renowned for its comprehensive legal services and dedicated client representation. Our practice extends across the Supreme Court of India, the Delhi High Court, and various tribunals and commissions, including the NCDRC, SCDRC, NGT, AFT, CAT, as well as subordinate courts in Delhi. With a commitment to excellence and a client-centric approach, we navigate complex legal matters with precision and expertise.</span>
-</div>
-<div className=' h-auto lg:ml-10 mr-30'>
-<h1 className='text-3xl '><b>Nationwide Legal Representation Across All Courts</b></h1>
-<br />
-<span className='text-xs '>Comprehensive Litigation Services – Advocacy in the Supreme Court, High Courts, District Courts, and Tribunals across India.
-Expert Tribunal Representation – Handling cases before NCDRC, SCDRC, NGT, AFT, CAT, and other regulatory bodies.
-Pan-India Legal Assistance – Providing legal solutions across multiple jurisdictions and states.
-Corporate & Individual Legal Support – Representing businesses, institutions, and individuals in diverse legal matters.
-Strategic & Effective Advocacy – Ensuring a results-driven approach in every court and tribunal.</span>
-</div>
+        {/* Right Section */}
+        <div className="flex flex-col justify-center">
+          <h1 className="text-2xl md:text-3xl font-bold mb-2">
+            Nationwide Legal Representation Across All Courts
+          </h1>
+          <p className="text-sm leading-relaxed">
+            <strong>Comprehensive Litigation Services</strong> – Advocacy in the Supreme Court, High Courts, District Courts, and Tribunals across India. <br /><br />
+            <strong>Expert Tribunal Representation</strong> – Handling cases before NCDRC, SCDRC, NGT, AFT, CAT, and other regulatory bodies. <br /><br />
+            <strong>Pan-India Legal Assistance</strong> – Providing legal solutions across multiple jurisdictions and states. <br /><br />
+            <strong>Corporate & Individual Legal Support</strong> – Representing businesses, institutions, and individuals in diverse legal matters. <br /><br />
+            <strong>Strategic & Effective Advocacy</strong> – Ensuring a results-driven approach in every court and tribunal.
+          </p>
+        </div>
+      </div>
+    </div>
+  );
+};
 
-
-</div>
-
-</div>
-  )
-}
-
-export default Content
+export default Content;

@@ -1,5 +1,8 @@
 import React, { useState } from 'react'
 import axios from 'axios'
+import ReactDOM from 'react-dom'
+import { SocialIcon } from 'react-social-icons'
+
 
 
 
@@ -36,17 +39,18 @@ const Contact = () => {
   }
 
   return (
-    <div className='bg-slate-500 md:flex md:flex-row lg: w-screen h-[400px] flex flex-col justify-center' id='contact'>
-        <div className='w-auto  md:w-1/3 pl-12  flex flex-col justify-center px-20 '>
+    <div className='bg-slate-500 md:flex md:flex-row lg:  w-screen h-[400px] flex flex-col justify-center' id='contact'>
+        <div className='w-auto mt-25 md:w-1/3 pl-12  flex flex-col justify-center px-20 '>
         <span className='text-white text-2xl'>LEGUM CONSULTANTS</span>
-        <span className='text-white '>413, Saket District Court,
-        New Delhi</span>
+        <SocialIcon href="www.github.com" />
         </div>
         <div className='w-auto md:w-2/3  bg-slate-500 flex flex-col justify-center'>
         <div className='ml-25 flex flex-col '>
         <span className='text-white '>Call Us   8802888820</span>
         <br />
         <span className='text-white'> Email: asitroyadvocate@gmail.com</span>
+        <br />
+
         </div>
         <div className="w-full mx-auto p-6  ">
   <form  className="grid grid-cols-1 sm:grid-cols-2 gap-4">
@@ -78,7 +82,6 @@ const Contact = () => {
 
     {/* Phone */}
     <div>
-      
       <input
       type="tel"
           name="phone"

@@ -16,17 +16,24 @@ const Navbar = () => {
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50);
+      const scrolled = window.scrollY > 50;
+      setIsScrolled(scrolled);
+
+      // Auto-close dropdown only if it's open when scrolling
+      if (scrolled && menuOpen) {
+        setMenuOpen(false);
+      }
     };
+
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+  }, [menuOpen]);
 
   return (
     <nav
-      className={`${isScrolled ? "backdrop-blur-lg" : "bg-transparent"} 
-        ${isScrolled ? "text-black" : "text-white"} 
-        shadow-md fixed w-full top-0 z-50`}
+      className={`fixed w-full top-0 z-50 transition-all duration-300 ${
+        isScrolled ? "backdrop-blur-lg text-black shadow-md" : "bg-transparent text-white"
+      }`}
     >
       <div className="max-w-8xl mx-auto px-3 py-3 flex items-center justify-between">
         {/* Logo */}
@@ -37,7 +44,7 @@ const Navbar = () => {
         {/* Hamburger Icon */}
         <div className="lg:hidden">
           <button
-            onClick={() => setMenuOpen(!menuOpen)}
+            onClick={() => setMenuOpen((prev) => !prev)}
             className="text-4xl mx-5"
           >
             {menuOpen ? <FiX /> : <FiMenu />}
@@ -56,7 +63,7 @@ const Navbar = () => {
           <li>
             <button
               onClick={handleClick}
-              className="bg-blue-600 text-white px-6 py-2 rounded hover:bg-blue-700 transition"
+              className="bg-blue-600  text-white px-6 py-2 rounded hover:bg-blue-700 transition"
             >
               Sign Up
             </button>
@@ -64,17 +71,25 @@ const Navbar = () => {
         </ul>
       </div>
 
-      {/* Mobile Dropdown */}
+      {/* Mobile Dropdown — Show only if menuOpen is true */}
       {menuOpen && (
-        <div className="lg:hidden px-4 pb-4">
-          <ul className="flex flex-col space-y-3 bg-white text-black font-medium p-4 rounded shadow-md">
+        <div
+          className={`lg:hidden px-4 pb-4 transition-all duration-300 ease-in-out transform origin-top ${
+            menuOpen ? "scale-y-100 opacity-100" : "scale-y-0 opacity-0 pointer-events-none"
+          }`}
+        >
+          <ul
+            className={`flex flex-col space-y-3 font-medium p-4 rounded shadow-md ${
+              isScrolled ? "bg-white text-black" : "bg-black/80 text-white"
+            }`}
+          >
             {["home", "Content", "expertise", "litigation", "team", "blog", "contact"].map((section) => (
               <li key={section} className="hover:text-blue-600 cursor-pointer">
                 <Link
                   to={section}
                   smooth={true}
                   duration={500}
-                  onClick={() => setMenuOpen(false)} // Close menu after click
+                  onClick={() => setMenuOpen(false)}
                 >
                   {section.charAt(0).toUpperCase() + section.slice(1)}
                 </Link>

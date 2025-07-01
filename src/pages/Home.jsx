@@ -24,6 +24,7 @@ const Home = () => {
     <Litigation />
     <Legacy />
     <Team />
+    <Blogs />
     <YoutubeApi />
     <Contact />
     </div>

@@ -1,108 +1,63 @@
-import React from 'react'
-import Hexagon from './Hexagon'
-import List from '../H_List'
-import ContactUs from './ContactUs'
+import React from 'react';
+import Slider from 'react-slick';
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+
+const expertiseData = [
+  { title: "CRIMINAL LITIGATION" },
+  { title: "CIVIL LITIGATIONS" },
+  { title: "ACCIDENTAL CLAIMS" },
+  { title: "CONSTITUTIONAL LAW" },
+  { title: "EMPLOYMENT & LABOUR LAW" },
+  { title: "ARMY CASES" },
+];
 
 const Expertise = () => {
+  const settings = {
+    dots: true,
+    infinite: true,
+    speed: 300,
+    slidesToShow: 6, // Adjust for responsiveness
+    slidesToScroll: 1,
+    autoplay: true,             // ← auto scroll enabled
+    autoplaySpeed: 3000,
+    responsive: [
+      {
+        breakpoint: 1024, // tablet
+        settings: {
+          slidesToShow: 2,
+        },
+      },
+      {
+        breakpoint: 640, // mobile
+        settings: {
+          slidesToShow: 1,
+        },
+      },
+    ],
+  };
+
   return (
-    <div className='flex flex-col justify-items-center bg-slate-500' id='expertise'>
-    <div className='flex flex-col px-25 lg:flex-row flex-wrap md:justify-center md:flex md:flex-wrap py-6  '>
-
-      <div className='flex m-auto flex-col justify-center gap-1 p-2'>
-        <div className=' w-50 h-56 flex flex-col justify-center gap-1'>
-       <div className=' h-6'>
-       <h1 className="text-white mx-10 text text-xs ">CRIMINAL LITIGATION</h1>
-       </div>  
-        <div className=" w-36 h-40 flex items-center justify-center shadow-lg text-lg font-bold bg-white m-auto my-0.5"
-        style={{
-          clipPath: "polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%)",
-          }}
-          >
+    <div className='bg-slate-500 py-10 px-4' id='expertise'>
+      <h2 className="text-white text-3xl font-bold text-center mb-8">Our Expertise</h2>
+      <Slider {...settings}>
+        {expertiseData.map((item, index) => (
+          <div key={index} className="px-4">
+            <div className='flex flex-col items-center gap-2'>
+              <h3 className="text-white text-sm text-center">{item.title}</h3>
+              <div
+                className="w-36 h-40 bg-white shadow-xl"
+                style={{
+                  clipPath: "polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%)",
+                  filter: "drop-shadow(5px 5px 10px rgba(0, 0, 0, 0.5))",
+                }}
+              ></div>
+            </div>
           </div>
-            </div>
-            </div>
+        ))}
+      </Slider>
+    </div>
+  );
+};
 
-            <div className='flex m-auto flex-col justify-center gap-1 p-2'>
-        <div className=' w-50 h-56 flex flex-col justify-center gap-1'>
-       <div className=' h-6'>
-       <h1 className="text-white ml-13 text text-xs ">CIVIL LITIGATIONS</h1>
-       </div>  
-        <div className=" w-36 h-40 flex items-center justify-center shadow-lg text-lg font-bold bg-white m-auto my-0.5"
-        style={{
-          clipPath: "polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%)",
-          }}
-          >
-          </div>
-            </div>
-            </div>
-
-            <div className='flex m-auto flex-col justify-center gap-1 p-2'>
-        <div className=' w-50 h-56 flex flex-col justify-center gap-1'>
-       <div className=' h-6'>
-       <h1 className="text-white ml-12 text text-xs ">ACCIDENTAL CLAIMS</h1>
-       </div>  
-        <div className=" w-36 h-40 flex items-center justify-center shadow-lg text-lg font-bold bg-white m-auto my-0.5"
-        style={{
-          clipPath: "polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%)",
-          }}
-          >
-          </div>
-            </div>
-            </div>
-
-            <div className='flex m-auto flex-col justify-center gap-1 p-2'>
-        <div className=' w-50 h-56 flex flex-col justify-center gap-1'>
-       <div className=' h-6'>
-       <h1 className="text-white ml-9.5 text text-xs ">CONSTITUTIONAL LAW</h1>
-       </div>  
-        <div className=" w-36 h-40 flex items-center justify-center shadow-lg text-lg font-bold bg-white m-auto my-0.5"
-        style={{
-          clipPath: "polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%)",
-          }}
-          >
-          </div>
-            </div>
-            </div>
-
-            <div className='flex m-auto flex-col justify-center gap-1 p-2'>
-        <div className=' w-50 h-56 flex flex-col justify-center gap-1'>
-       <div className=' h-6'>
-       <h1 className="text-white ml-4.5  text text-xs ">EMPLOYMENT & LABOUR LAW</h1>
-       </div>  
-        <div className=" w-36 h-40 flex items-center justify-center shadow-lg text-lg font-bold bg-white m-auto my-0.5"
-        style={{
-          clipPath: "polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%)",
-          }}
-          >
-          </div>
-            </div>
-            </div>
-
-            <div className='flex m-auto flex-col justify-center gap-1 p-2'>
-        <div className=' w-50 h-56 flex flex-col justify-center gap-1'>
-       <div className=''>
-       <h1 className="text-white mx-15.5 text text-xs ">ARMY CASES</h1>
-       </div>  
-        <div className=" w-36 h-40 shadow-xl bg-white m-auto my-0.5"
-        style={{
-          clipPath: "polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%)",
-          filter: "drop-shadow(5px 5px 10px rgba(0, 0, 0, 0.5))"
-          }}
-          >
-          </div>
-            </div>
-            </div>
-
-    
-   {/* {List.map((e) => (
-      <Hexagon key={e.id} name={e.name} />
-      ))}
-      </div>
-      <div className='mx-auto p-3'>
-      <ContactUs /> */} 
-      </div>
-      </div>
-  )
-}
-
-export default Expertise
+export default Expertise;
