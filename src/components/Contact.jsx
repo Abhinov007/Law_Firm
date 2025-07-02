@@ -2,6 +2,12 @@ import React, { useState } from 'react'
 import axios from 'axios'
 import ReactDOM from 'react-dom'
 import { SocialIcon } from 'react-social-icons'
+import { FaInstagram } from "react-icons/fa";
+import { FaFacebookF } from "react-icons/fa";
+import { FaLinkedin } from "react-icons/fa";
+
+import 'primeicons/primeicons.css';
+        
 
 
 
@@ -42,7 +48,22 @@ const Contact = () => {
     <div className='bg-slate-500 md:flex md:flex-row lg:  w-screen h-[400px] flex flex-col justify-center' id='contact'>
         <div className='w-auto mt-25 md:w-1/3 pl-12  flex flex-col justify-center px-20 '>
         <span className='text-white text-2xl'>LEGUM CONSULTANTS</span>
-        <SocialIcon href="www.github.com" />
+        <br />
+        <div className='flex flex-row justify-cennter gap-8'>
+<div className='flex flex-row justify-center gap-8 text-white text-xl'>
+  <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer">
+    <FaInstagram />
+  </a>
+  <a href="https://www.linkedin.com/in" target="_blank" rel="noopener noreferrer">
+    <FaLinkedin />
+  </a>
+  <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer">
+    <FaFacebookF />
+  </a>
+</div>
+
+        </div>
+
         </div>
         <div className='w-auto md:w-2/3  bg-slate-500 flex flex-col justify-center'>
         <div className='ml-25 flex flex-col '>

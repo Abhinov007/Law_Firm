@@ -4,9 +4,9 @@ import bgContent from "../assets/bgContent.png";
 
 const Content = () => {
   return (
-    <div className="relative w-screen min-h-[1000px] md:h-[400px]" id="Content">
+    <div className="relative w-screen h-[1000px] lg:h-[500px] md:h-[400px]" id="Content">
       {/* Background Image */}
-      <img className="w-full h-[1000px] object-cover" src={bgContent} alt="background" />
+      <img className="w-full h-[1000px] lg:h-[500px]  object-cover" src={bgContent} alt="background" />
 
       {/* Foreground Text Content */}
       <div className="absolute top-0 left-0 w-full h-full grid gap-6 md:grid-cols-2 px-4 py-8 md:px-10 md:py-14">
