@@ -133,5 +133,21 @@ const assignLawyer = async (req, res) => {
     }
 };
 
+// Get cases assigned to the currently logged-in lawyer
+const getMyCases = async (req, res) => {
+  try {
+    if (req.user.role !== 'lawyer') {
+      return res.status(403).json({ message: "Access denied. Only lawyers can view this." });
+    }
 
-module.exports = { createCase, getAllCases, getCases, updateCase, deleteCase, assignLawyer };
+    const cases = await Case.find({ lawyerAssigned: req.user._id }).populate("lawyerAssigned", "name email");
+    res.status(200).json(cases);
+  } catch (error) {
+    console.error("Error fetching lawyer's cases:", error);
+    res.status(500).json({ message: "Internal server error" });
+  }
+};
+
+
+
+module.exports = { createCase, getAllCases, getCases, updateCase, deleteCase, assignLawyer, getMyCases };
